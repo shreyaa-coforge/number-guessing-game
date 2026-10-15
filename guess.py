@@ -36,3 +36,15 @@ while not valid:
 
 # ---------- Choose a mode ----------
 # Goal: keep asking until the player picks Classic or Time Challenge.
+valid_mode = False
+while not valid_mode:
+    try:
+        mode = int(input("Enter mode: \n 1. Classic \n 2. Time Challenge\n"))
+
+        if mode == 1 or mode == 2:
+            valid_mode = True
+        else:
+            print("Invalid. Choose 1 or 2\n")
+    except ValueError:
+        print("Invalid. Enter a valid number: \n")
+        continue
