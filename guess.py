@@ -48,6 +48,24 @@ while not valid_mode:
     except ValueError:
         print("Invalid. Enter a valid number: \n")
         continue
+        
+
+# ---------- Set up the round ----------
+# Goal: pick the secret number (use DEBUG_SECRET when it is not None) and start the clock.
+if DEBUG_SECRET is not None:
+    if low <= DEBUG_SECRET <= high:
+        secret_number = DEBUG_SECRET
+    else:
+        print("DEBUG_SECRET is outside level range")
+        secret_number = random.randint(low, high)
+else:
+    secret_number = random.randint(low, high)
+
+attempt = 0
+game_result = ""
+game_loop = False
+if mode == 2:
+    start_time = time.time()
 
 # ---------- Guess loop ----------
 # Goal: keep asking for guesses until the player wins, runs out of attempts, or runs out of time.
@@ -79,6 +97,7 @@ if mode == 1:
                 print("Game over!! Ran out of attempts")
                 game_loop = True
                 game_result = "attempt"
+
 elif mode == 2:
     while not game_loop:
         curr_time = time.time()
@@ -126,6 +145,7 @@ elif mode == 2:
                 print("Game over!! Ran out of attempts")
                 game_loop = True
                 game_result = "attempt"
+
 # ---------- End of round ----------
 # Goal: show the result that matches how the round ended.
 if game_result == "win":
