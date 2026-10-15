@@ -48,3 +48,13 @@ while not valid_mode:
     except ValueError:
         print("Invalid. Enter a valid number: \n")
         continue
+# ---------- Set up the round ----------
+# Goal: pick the secret number (use DEBUG_SECRET when it is not None) and start the clock.
+if DEBUG_SECRET is not None:
+    if low <= DEBUG_SECRET <= high:
+        secret_number = DEBUG_SECRET
+    else:
+        print("DEBUG_SECRET is outside level range")
+        secret_number = random.randint(low, high)
+else:
+    secret_number = random.randint(low, high)
