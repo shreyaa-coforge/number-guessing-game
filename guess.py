@@ -79,3 +79,50 @@ if mode == 1:
                 print("Game over!! Ran out of attempts")
                 game_loop = True
                 game_result = "attempt"
+elif mode == 2:
+    while not game_loop:
+        curr_time = time.time()
+        time_gone = curr_time - start_time
+        time_remaining = TIME_LIMIT - time_gone
+        if time_remaining <= 0:
+            print("Time up!! Game over!")
+            game_result = "Time up"
+            game_loop = True
+            break
+        print("Time remaining (in seconds): ", time_remaining)
+
+        try:
+            guess = int(input("Guess a number: \n"))
+        except ValueError:
+            print("Enter a valid number: \n")
+            continue
+
+        curr_time = time.time()
+        time_gone = curr_time - start_time
+        time_remaining = TIME_LIMIT - time_gone
+        if time_remaining <= 0:
+            print("Time up!! Game over!")
+            game_result = "Time up"
+            game_loop = True
+            break
+        if guess < low or guess > high:
+            print("Enter a valid guess within the range\n")
+            continue
+        attempt += 1
+
+        if guess == secret_number:
+            print("Winner!!")
+            game_loop = True
+            game_result = "win"
+
+        elif guess > secret_number:
+            print("Too high")
+        else:
+            print("Too low")
+        if not game_loop:
+            attempt_left = attempt_limit - attempt
+            print(f"You have {attempt_left} attempts left")
+            if attempt >= attempt_limit:
+                print("Game over!! Ran out of attempts")
+                game_loop = True
+                game_result = "attempt"
