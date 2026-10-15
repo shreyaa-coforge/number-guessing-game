@@ -58,3 +58,9 @@ if DEBUG_SECRET is not None:
         secret_number = random.randint(low, high)
 else:
     secret_number = random.randint(low, high)
+
+attempt = 0
+game_result = ""
+game_loop = False
+if mode == 2:
+    start_time = time.time()
