@@ -126,3 +126,13 @@ elif mode == 2:
                 print("Game over!! Ran out of attempts")
                 game_loop = True
                 game_result = "attempt"
+# ---------- End of round ----------
+# Goal: show the result that matches how the round ended.
+if game_result == "win":
+    print(f"You guessed the correct number in {attempt} attempts")
+else:
+    print(f"The secret number was {secret_number}")
+    if game_result == "Time up":
+        print("You ran out of time")
+    elif game_result == "attempt":
+        print("You ranout of attempts")
