@@ -156,19 +156,3 @@ else:
         print("You ran out of time")
     elif game_result == "attempt":
         print("You ranout of attempts")
-# ---------- Set up the round ----------
-# Goal: pick the secret number (use DEBUG_SECRET when it is not None) and start the clock.
-if DEBUG_SECRET is not None:
-    if low <= DEBUG_SECRET <= high:
-        secret_number = DEBUG_SECRET
-    else:
-        print("DEBUG_SECRET is outside level range")
-        secret_number = random.randint(low, high)
-else:
-    secret_number = random.randint(low, high)
-
-attempt = 0
-game_result = ""
-game_loop = False
-if mode == 2:
-    start_time = time.time()
